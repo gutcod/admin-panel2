@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { CardList } from "../card-list/card-list.component";
 import { SearchBox } from "../search-box/searchbox.component";
 import Form from "../form/form.component";
-import Modal from "../modal/modal.component";
+
 class DisplayUser extends Component {
   constructor() {
     super();
@@ -54,11 +54,7 @@ class DisplayUser extends Component {
           placeholder="search contact"
           handleChange={this.handleChange}
         />
-        <CardList
-          monsters={filterMonsters}
-          onRemove={this.removeContact}
-          handleModalForm={this.handleModalForm}
-        />
+        <CardList monsters={filterMonsters} onRemove={this.removeContact} />
       </div>
     );
   }

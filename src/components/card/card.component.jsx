@@ -14,7 +14,7 @@ export class Card extends React.Component {
   };
 
   render() {
-    const { monster, remove, ...rest } = this.props;
+    const { monster, remove } = this.props;
     const { name, email, phone, id } = monster;
     return (
       <div className="card-container" onClick={this.handleModalForm}>
