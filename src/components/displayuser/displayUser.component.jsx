@@ -24,6 +24,9 @@ class DisplayUser extends Component {
   handleChange = (el) => {
     this.setState({ searchField: el.target.value });
   };
+  changeUser = (el) => {
+    this.setState({ monsters: el.target.value });
+  };
 
   removeContact = (id) => {
     const monstersCopy = [...this.state.monsters].filter(

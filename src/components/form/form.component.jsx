@@ -49,7 +49,7 @@ export default class Form extends Component {
           onChange={this.handleChange}
           placeholder="phone"
         />
-        <button type="button" onClick={this.handleSubmit}>
+        <button type="button" onClick={this.handleSubmit} className="btn-form">
           Add new user
         </button>
       </form>

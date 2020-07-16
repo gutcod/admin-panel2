@@ -20,18 +20,18 @@ export default class ModalComponent extends Component {
               <Form.Group controlId="formBasicEmail">
                 <Form.Control
                   type="name"
-                  placeholder={this.props.name}
                   name="name"
-                  onChange={this.props.handleChange}
+                  value={this.props.name}
+                  onChange={this.handleChange}
                 />
                 <Form.Control
                   type="email"
-                  placeholder={this.props.email}
+                  value={this.props.email}
                   name="name"
                 />
                 <Form.Control
                   type="phone"
-                  placeholder={this.props.phone}
+                  value={this.props.phone}
                   name="name"
                 />
               </Form.Group>

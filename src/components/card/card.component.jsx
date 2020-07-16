@@ -5,17 +5,11 @@ import Modal from "../modal/modal.component";
 export class Card extends React.Component {
   state = {
     isEdit: false,
-    monsters: [],
   };
 
   handleModalForm = () => {
     this.setState({
       isEdit: !this.state.isEdit,
-    });
-  };
-  handleChange = (name, email, phone) => {
-    this.setState({
-      monsters: [...this.state.monsters, { id: name, email, phone }],
     });
   };
 
@@ -27,28 +21,30 @@ export class Card extends React.Component {
         <p>{name}</p>
         <p>{email}</p>
         <p>{phone}</p>
-        <button onClick={this.handleModalForm}>edit</button>
-        {this.state.isEdit && (
-          <Modal
-            show={this.state.isEdit}
-            onHide={this.handleModalForm}
-            name={name}
-            email={email}
-            phone={phone}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-          />
-        )}
-        <button
-          className="rm"
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            remove(id);
-          }}
-        >
-          &times;
-        </button>
+        <div className="btn">
+          <button onClick={this.handleModalForm} className="edit">
+            edit
+          </button>
+          {this.state.isEdit && (
+            <Modal
+              show={this.state.isEdit}
+              onHide={this.handleModalForm}
+              name={name}
+              email={email}
+              phone={phone}
+            />
+          )}
+          <button
+            className="rm"
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              remove(id);
+            }}
+          >
+            &times;
+          </button>
+        </div>
       </div>
     );
   }
