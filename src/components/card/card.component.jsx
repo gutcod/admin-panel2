@@ -11,16 +11,27 @@ export class Card extends React.Component {
     this.setState({
       isEdit: !this.state.isEdit,
     });
+    console.log(this.state.isEdit);
   };
 
   render() {
     const { monster, remove } = this.props;
     const { name, email, phone, id } = monster;
     return (
-      <div className="card-container" onClick={this.handleModalForm}>
+      <div className="card-container">
         <p>{name}</p>
         <p>{email}</p>
         <p>{phone}</p>
+        <button onClick={this.handleModalForm}>edit</button>
+        {this.state.isEdit && (
+          <Modal
+            show={this.state.isEdit}
+            onHide={this.handleModalForm}
+            name={name}
+            email={email}
+            phone={phone}
+          />
+        )}
         <button
           className="rm"
           type="button"
@@ -31,15 +42,6 @@ export class Card extends React.Component {
         >
           &times;
         </button>
-        {this.state.isEdit && (
-          <Modal
-            show={this.state.isEdit}
-            onHide={this.handleModalForm}
-            name={name}
-            email={email}
-            phone={phone}
-          />
-        )}
       </div>
     );
   }

@@ -6,7 +6,7 @@ export default class ModalComponent extends Component {
       <div>
         <Modal
           size="lg"
-          show={true}
+          show={this.props.show}
           aria-labelledby="contained-modal-title-vcenter"
           centered
         >
@@ -24,17 +24,6 @@ export default class ModalComponent extends Component {
                   We'll never share your email with anyone else.
                 </Form.Text>
               </Form.Group>
-
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
-              </Form.Group>
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
-              </Form.Group>
-              <Button variant="primary" type="button">
-                Submit
-              </Button>
             </Form>
           </Modal.Body>
           <Modal.Footer>

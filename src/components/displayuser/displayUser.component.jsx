@@ -49,11 +49,12 @@ class DisplayUser extends Component {
     return (
       <div className="App">
         <h1>Contact list</h1>
-        <Form createNewUser={this.createNewUser} />
+
         <SearchBox
           placeholder="search contact"
           handleChange={this.handleChange}
         />
+        <Form createNewUser={this.createNewUser} />
         <CardList monsters={filterMonsters} onRemove={this.removeContact} />
       </div>
     );
