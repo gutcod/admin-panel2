@@ -5,13 +5,18 @@ import Modal from "../modal/modal.component";
 export class Card extends React.Component {
   state = {
     isEdit: false,
+    monsters: [],
   };
 
   handleModalForm = () => {
     this.setState({
       isEdit: !this.state.isEdit,
     });
-    console.log(this.state.isEdit);
+  };
+  handleChange = (name, email, phone) => {
+    this.setState({
+      monsters: [...this.state.monsters, { id: name, email, phone }],
+    });
   };
 
   render() {
@@ -30,6 +35,8 @@ export class Card extends React.Component {
             name={name}
             email={email}
             phone={phone}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
           />
         )}
         <button

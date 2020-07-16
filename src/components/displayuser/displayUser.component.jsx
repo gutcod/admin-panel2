@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { CardList } from "../card-list/card-list.component";
 import { SearchBox } from "../search-box/searchbox.component";
 import Form from "../form/form.component";
+import Signin from "../../pages/auth.component";
 
 class DisplayUser extends Component {
   constructor() {
@@ -11,6 +12,7 @@ class DisplayUser extends Component {
     this.state = {
       monsters: [],
       searchField: "",
+      route: "signin",
     };
   }
   componentDidMount() {
@@ -40,6 +42,7 @@ class DisplayUser extends Component {
       ],
     });
   };
+  onRouteChange = (route) => this.setState({ route: route });
 
   render() {
     const { monsters, searchField } = this.state;
@@ -49,13 +52,18 @@ class DisplayUser extends Component {
     return (
       <div className="App">
         <h1>Contact list</h1>
-
-        <SearchBox
-          placeholder="search contact"
-          handleChange={this.handleChange}
-        />
-        <Form createNewUser={this.createNewUser} />
-        <CardList monsters={filterMonsters} onRemove={this.removeContact} />
+        {this.state.route === "signin" ? (
+          <Signin onRouteChange={this.onRouteChange} />
+        ) : (
+          <div>
+            <SearchBox
+              placeholder="search contact"
+              handleChange={this.handleChange}
+            />
+            <Form createNewUser={this.createNewUser} />
+            <CardList monsters={filterMonsters} onRemove={this.removeContact} />
+          </div>
+        )}
       </div>
     );
   }

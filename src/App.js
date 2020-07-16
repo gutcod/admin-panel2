@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
+import "./App.css";
+//import User from './pages/user.component';
+import DisplayUser from "./components/displayuser/displayUser.component";
 
-import './App.css';
-import User from './pages/user.component';
-
-function App(){
-  return(
+function App() {
+  return (
     <div>
-          <User />
+      <DisplayUser />
     </div>
-  )
+  );
 }
 export default App;
